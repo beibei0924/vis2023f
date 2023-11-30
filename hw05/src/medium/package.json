@@ -1,0 +1,14 @@
+{
+  "name": "985e417a8b6fd77c",
+  "main": "985e417a8b6fd77c@22.js",
+  "version": "22.0.0",
+  "homepage": "https://observablehq.com/d/985e417a8b6fd77c",
+  "author": {
+    "name": "yu-ching's Workspace",
+    "url": "https://observablehq.com/@yu-ching-ws"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
