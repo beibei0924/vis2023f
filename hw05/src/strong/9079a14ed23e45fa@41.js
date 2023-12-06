@@ -189,10 +189,6 @@ function _simple1(d3,simple,drag,url_list,invalidation)
 }
 
 
-function _simple(FileAttachment){return(
-FileAttachment("simple(分數版).json").json()
-)}
-
 function _url_list(){return(
 [
   "https://tjhsieh.github.io/c/vis/vis2023f/syllabus/grade/svg10/01.svg",
@@ -236,17 +232,21 @@ simulation => {
 }
 )}
 
+function _simple(FileAttachment){return(
+FileAttachment("simple(分數版)@2.json").json()
+)}
+
 export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["simple(分數版).json", {url: new URL("./simple(分數版).json", import.meta.url), mimeType: "application/json", toString}]
+    ["simple(分數版)@2.json", {url: new URL("./simple(分數版).json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer("simple1")).define("simple1", ["d3","simple","drag","url_list","invalidation"], _simple1);
-  main.variable(observer("simple")).define("simple", ["FileAttachment"], _simple);
   main.variable(observer("url_list")).define("url_list", _url_list);
   main.variable(observer("drag")).define("drag", ["d3"], _drag);
+  main.variable(observer("simple")).define("simple", ["FileAttachment"], _simple);
   return main;
 }
